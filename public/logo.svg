@@ -1,0 +1,40 @@
+<svg width="500" height="120" viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-text { fill: #006B6B; font-family: 'Times New Roman', serif; font-weight: bold; }
+      .logo-subtitle { fill: #006B6B; font-family: Arial, sans-serif; font-weight: normal; }
+      .logo-accent { fill: #006B6B; font-family: Arial, sans-serif; font-weight: normal; }
+      .monogram { fill: #006B6B; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="120" fill="#000000"/>
+  
+  <!-- Monogram (R and J intertwined) -->
+  <g class="monogram" transform="translate(20, 20)">
+    <!-- Oval/Swoosh shape -->
+    <ellipse cx="30" cy="40" rx="35" ry="25" fill="none" stroke="#006B6B" stroke-width="2.5"/>
+    
+    <!-- Letter R -->
+    <path d="M 10 15 L 10 65 M 10 15 L 25 15 Q 35 15 35 25 Q 35 35 25 35 L 10 35 M 25 35 L 30 45 L 25 50" 
+          stroke="#006B6B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Letter J (integrated into R) -->
+    <path d="M 30 45 L 30 65 Q 30 70 25 70 Q 20 70 20 65" 
+          stroke="#006B6B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Main Company Name: RAJA JAISWAL -->
+  <text x="100" y="50" class="logo-text" font-size="36" font-weight="bold" letter-spacing="1px">RAJA JAISWAL</text>
+  
+  <!-- Industry Description: PLASTIC INDUSTRIES -->
+  <text x="100" y="80" class="logo-subtitle" font-size="12" letter-spacing="2px">PLASTIC INDUSTRIES</text>
+  
+  <!-- Since 1975 -->
+  <text x="320" y="30" class="logo-accent" font-size="9" letter-spacing="1.5px">SINCE 1975</text>
+  
+  <!-- Trademark symbol -->
+  <text x="400" y="30" class="logo-accent" font-size="7">TM</text>
+</svg>
+
