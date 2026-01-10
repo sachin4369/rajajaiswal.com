@@ -83,7 +83,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
   const cardContent = (
     <>
       {/* Image Container - Left Side */}
-      <div className="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 h-48 flex items-center justify-center">
+      <div className="relative w-full overflow-hidden bg-gray-100 h-48 flex items-center justify-center">
         {!hasApiImage ? (
           <img
             src="/placeholder.svg"
@@ -119,23 +119,23 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
         )}
       </div>
       <div className="p-4">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
+        <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
           {product.name || 'Unnamed Product'}
         </h3>
         {product.description && (
-          <p className="text-gray-600 dark:text-gray-400 text-xs mb-3 line-clamp-2">
+          <p className="text-gray-600 text-xs mb-3 line-clamp-2">
             {product.description}
           </p>
         )}
         <div className="flex items-center justify-between">
           {product.price && (
-            <span className="text-lg font-bold text-gray-900 dark:text-white">
+            <span className="text-lg font-bold text-gray-900">
               ₹{product.price.toLocaleString()}
             </span>
           )}
           <motion.div
             whileHover={{ x: 3 }}
-            className="flex items-center text-teal-600 dark:text-teal-400 font-medium text-xs"
+            className="flex items-center text-teal-600 font-medium text-xs"
           >
             View
             <ArrowRight className="w-3 h-3 ml-1" />
@@ -152,7 +152,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
       viewport={{ once: true, margin: '50px' }}
       transition={{ delay: shouldPrioritize ? 0 : index * 0.03 }}
       whileHover={{ y: -4 }}
-      className="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 w-full"
+      className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-200 w-full"
     >
       {isExternalUrl ? (
         <a 

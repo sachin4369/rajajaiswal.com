@@ -108,7 +108,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative w-full h-[450px] md:h-[550px] bg-gradient-to-r from-black via-teal-950 to-black">
         <div
@@ -160,14 +160,14 @@ export default function Home() {
       </section>
 
       {/* Featured Main Categories - Highlighted */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
             >
               Our Featured Categories
             </motion.h2>
@@ -176,7 +176,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
             >
               Discover our premium collection of furniture and seating solutions
             </motion.p>
@@ -200,8 +200,8 @@ export default function Home() {
                 >
                   {(() => {
                     const categoryContent = (
-                      <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500 dark:hover:border-teal-400">
-                        <div className="relative h-64 md:h-80 w-full overflow-hidden bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950 dark:to-black">
+                      <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500">
+                        <div className="relative h-64 md:h-80 w-full overflow-hidden bg-gradient-to-br from-teal-50 to-teal-100">
                           <Image
                             src={category.image}
                             alt={category.name}
@@ -211,19 +211,19 @@ export default function Home() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                           <div className="absolute top-4 right-4">
-                            <span className="px-3 py-1 bg-teal-600 dark:bg-teal-500 text-white text-xs font-bold rounded-full shadow-lg">
+                            <span className="px-3 py-1 bg-teal-600 text-white text-xs font-bold rounded-full shadow-lg">
                               Featured
                             </span>
                           </div>
                         </div>
                         <div className="p-6 md:p-8">
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
                             {category.name}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400 mb-4 text-base md:text-lg">
+                          <p className="text-gray-600 mb-4 text-base md:text-lg">
                             {category.description}
                           </p>
-                          <div className="flex items-center text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-2 transition-transform">
+                          <div className="flex items-center text-teal-600 font-semibold group-hover:translate-x-2 transition-transform">
                             Explore Collection
                             <ArrowRight className="w-5 h-5 ml-2" />
                           </div>
@@ -249,14 +249,14 @@ export default function Home() {
       </section>
 
       {/* Office Chair Parts Sub-Categories */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-3xl md:text-4xl font-bold text-gray-900  mb-4"
             >
               Office Chair Parts
             </motion.h2>
@@ -265,7 +265,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
               Explore our comprehensive range of office chair parts and components
             </motion.p>
@@ -278,8 +278,8 @@ export default function Home() {
               const isExternalUrl = categoryUrl.startsWith('http://') || categoryUrl.startsWith('https://');
               
               const categoryContent = (
-                <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700">
-                  <div className="relative h-32 md:h-40 w-full overflow-hidden bg-gray-100 dark:bg-gray-700">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-200">
+                  <div className="relative h-32 md:h-40 w-full overflow-hidden bg-gray-100">
                     <Image
                       src={category.image}
                       alt={category.name}
@@ -289,7 +289,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4 text-center">
-                    <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    <h3 className="text-sm md:text-base font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
                       {category.name}
                     </h3>
                   </div>
@@ -323,14 +323,14 @@ export default function Home() {
       </section>
 
       {/* Download Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-3xl md:text-4xl font-bold text-gray-900  mb-4"
             >
               Download Our Catalogs
             </motion.h2>
@@ -339,7 +339,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-gray-600 dark:text-gray-400"
+              className="text-lg text-gray-600"
             >
               Get detailed information about our products
             </motion.p>
@@ -351,10 +351,10 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200"
             >
               <Link href="/catalog">
-                <div className="relative h-56 bg-gray-100 dark:bg-gray-800">
+                <div className="relative h-56 bg-gray-100">
                   <Image
                     src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
                     alt="Office Chair Parts Catalog"
@@ -364,13 +364,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Chair Parts Catalog
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                  <p className="text-gray-600 mb-4 text-sm">
                     Complete catalog of all office chair parts and components
                   </p>
-                  <div className="flex items-center text-teal-600 dark:text-teal-400 font-medium text-sm">
+                  <div className="flex items-center text-teal-600 font-medium text-sm">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </div>
@@ -383,10 +383,10 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200"
             >
               <Link href="/catalog">
-                <div className="relative h-56 bg-gray-100 dark:bg-gray-800">
+                <div className="relative h-56 bg-gray-100">
                   <Image
                     src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80"
                     alt="Cafeteria Chairs Catalog"
@@ -396,13 +396,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Cafe Chair Catalog
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                  <p className="text-gray-600 mb-4 text-sm">
                     Explore our full range of cafeteria and dining chairs
                   </p>
-                  <div className="flex items-center text-teal-600 dark:text-teal-400 font-medium text-sm">
+                  <div className="flex items-center text-teal-600 font-medium text-sm">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </div>
@@ -414,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* Vision Statement Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -423,10 +423,10 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Our Vision
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Committed to providing high-quality, reliable, and affordable office furniture solutions
               </p>
             </motion.div>
@@ -439,10 +439,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                  className="flex items-start p-4 bg-gray-50 rounded-lg border border-gray-200"
                 >
-                  <Check className="w-5 h-5 text-teal-600 dark:text-teal-400 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-900 dark:text-white font-medium">
+                  <Check className="w-5 h-5 text-teal-600 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-900 font-medium">
                     {feature}
                   </span>
                 </motion.div>
@@ -454,20 +454,20 @@ export default function Home() {
 
       {/* Featured Products */}
       {trendingProducts.length > 0 && (
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                   Featured Products
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600">
                   Our most popular items
                 </p>
               </div>
               <Link
                 href="/products"
-                className="hidden md:flex items-center text-gray-900 dark:text-white font-semibold hover:underline"
+                className="hidden md:flex items-center text-gray-900 font-semibold hover:underline"
               >
                 View All
                 <ArrowRight className="w-5 h-5 ml-2" />
