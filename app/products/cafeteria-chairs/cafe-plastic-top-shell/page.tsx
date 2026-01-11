@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { Grid, List, ArrowLeft, Search, X } from 'lucide-react';
 import Link from 'next/link';
 import { ProductCard } from '@/components/ProductCard';
-import { fetchMeshBack } from '@/lib/api';
+import { fetchCafePlasticTopShell } from '@/lib/api';
 import { Product } from '@/types';
 
-export default function MeshBackSubcategoryPage() {
+export default function CafePlasticTopShellSubcategoryPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,15 +20,15 @@ export default function MeshBackSubcategoryPage() {
       setLoading(true);
       setError(null);
       try {
-        const fetchedProducts = await fetchMeshBack();
-        console.log(`Mesh Back loaded: ${fetchedProducts.length}`);
+        const fetchedProducts = await fetchCafePlasticTopShell();
+        console.log(`Cafe Plastic Top Shell loaded: ${fetchedProducts.length}`);
         setProducts(fetchedProducts);
         
         if (fetchedProducts.length === 0) {
           setError('No products found. Please check the browser console for details.');
         }
       } catch (error) {
-        console.error('Error loading mesh back:', error);
+        console.error('Error loading cafe plastic top shell:', error);
         setError('Failed to load products. Please check the console for details.');
         setProducts([]);
       } finally {
@@ -68,14 +68,14 @@ export default function MeshBackSubcategoryPage() {
                 <li>/</li>
                 <li>
                   <Link
-                    href="/products/chair-parts"
+                    href="/products/cafeteria-chairs"
                     className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
                   >
-                    Chair Parts & Components
+                    Cafeteria Chairs & Components
                   </Link>
                 </li>
                 <li>/</li>
-                <li className="font-medium text-gray-900 dark:text-gray-100">Chair Mesh Back</li>
+                <li className="font-medium text-gray-900 dark:text-gray-100">Cafe Plastic Top Shell</li>
               </ol>
             </nav>
             
@@ -119,7 +119,7 @@ export default function MeshBackSubcategoryPage() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
               <div className="flex items-center gap-4 flex-wrap">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                  Chair Mesh Back
+                  Cafe Plastic Top Shell
                 </h1>
                 {!loading && (
                   <span className="px-3 py-1.5 bg-teal-50 dark:bg-teal-900/20 rounded-lg border border-teal-200 dark:border-teal-800 text-sm font-semibold text-teal-700 dark:text-teal-300">
@@ -164,10 +164,9 @@ export default function MeshBackSubcategoryPage() {
             </div>
             
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl">
-              Ergonomic mesh back chairs for comfortable seating.
+              Durable plastic shell seating options for cafes and restaurants.
             </p>
           </div>
-
           {loading ? (
             <div className="text-center py-20">
               <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-teal-200 dark:border-teal-800 border-t-teal-600 dark:border-t-teal-400"></div>
@@ -204,7 +203,7 @@ export default function MeshBackSubcategoryPage() {
                       key={product.id} 
                       product={product} 
                       index={index}
-                      categoryOverride="mesh"
+                      categoryOverride="cafe-plastic-shell"
                     />
                   ))}
                 </div>
@@ -218,7 +217,7 @@ export default function MeshBackSubcategoryPage() {
                       transition={{ delay: index < 5 ? index * 0.02 : 0 }}
                       className="group bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
                     >
-                      <Link href={`/products/mesh/${product.id}`}>
+                      <Link href={`/products/cafe-plastic-shell/${product.id}`}>
                         <div className="flex flex-col sm:flex-row gap-6 p-6">
                           <div className="relative w-full sm:w-40 h-56 sm:h-40 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center border border-gray-200 dark:border-gray-700 group-hover:scale-105 transition-transform duration-300">
                             {product.image && product.image !== '/placeholder.svg' ? (

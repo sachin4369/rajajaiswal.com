@@ -43,8 +43,8 @@ export default function ProductsPage() {
       </section>
 
       {/* Category Cards */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {categories.map((category, index) => (
               <motion.div
@@ -96,9 +96,9 @@ export default function ProductsPage() {
                 </Link>
               </motion.div>
             ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 }

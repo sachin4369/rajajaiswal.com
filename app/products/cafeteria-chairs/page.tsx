@@ -31,10 +31,34 @@ const subcategories = [
   },
   {
     id: 'lounge-chairs',
-    name: 'Lounge Chairs',
+    name: 'Public Waiting Lounge Seater',
     description: 'Comfortable lounge seating solutions',
     slug: 'lounge',
     apiCategory: 'lounge',
+    icon: '🪑',
+  },
+  {
+    id: 'cafe-bar-counter-chair',
+    name: 'Cafe Bar Counter Chair',
+    description: 'Stylish bar counter seating solutions',
+    slug: 'cafe-bar-counter',
+    apiCategory: 'cafe-bar-counter',
+    icon: '🪑',
+  },
+  {
+    id: 'school-desk-institute-writing-chair',
+    name: 'School Desk & Institute Writing Chair',
+    description: 'Ergonomic seating for educational institutions',
+    slug: 'school-desk',
+    apiCategory: 'school-desk',
+    icon: '🪑',
+  },
+  {
+    id: 'cafe-plastic-top-shell',
+    name: 'Cafe Plastic Top Shell',
+    description: 'Durable plastic shell seating options',
+    slug: 'cafe-plastic-shell',
+    apiCategory: 'cafe-plastic-shell',
     icon: '🪑',
   },
 ];
@@ -82,7 +106,7 @@ export default function CafeteriaChairsPage() {
       {/* Subcategory Cards - Different Layout */}
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {subcategories.map((subcategory, index) => (
               <motion.div
                 key={subcategory.id}

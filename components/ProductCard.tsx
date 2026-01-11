@@ -35,6 +35,18 @@ function getCategorySlug(category: string): string {
     'inner-outer': 'inner-outer',
     'pu-moulded-chair': 'pu-moulded-chair',
     'pu-cushions': 'pu-cushions',
+    'cafe-bar-counter': 'cafe-bar-counter',
+    'school-desk': 'school-desk',
+    'cafe-plastic-shell': 'cafe-plastic-shell',
+    'chair-plastic-leg': 'chair-plastic-leg',
+    'school-desk-parts': 'school-desk-parts',
+    'sleek-chair-accessories': 'sleek-chair-accessories',
+    'chair-seat-back': 'chair-seat-back',
+    'chair-handle-base': 'chair-handle-base',
+    'iron-base': 'iron-base',
+    'chair-mesh-series': 'chair-mesh-series',
+    'chair-mechanism': 'chair-mechanism',
+    'fitting-accessories': 'fitting-accessories',
   };
   return categoryMap[category.toLowerCase()] || category.toLowerCase();
 }

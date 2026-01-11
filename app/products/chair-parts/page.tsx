@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, ChevronRight } from 'lucide-react';
 const subcategories = [
   {
     id: 'mesh-back',
-    name: 'Mesh Back',
+    name: 'Chair Mesh Back',
     description: 'Ergonomic mesh back chairs',
     slug: 'mesh',
     apiCategory: 'mesh',
@@ -21,7 +21,7 @@ const subcategories = [
   },
   {
     id: 'aremrest-pp-base',
-    name: 'PP Armrest',
+    name: 'PU Pad & PP Pad & PU Armrest',
     description: 'Premium polypropylene armrest bases',
     slug: 'aremrest-pp-base',
     apiCategory: 'aremrest-pp-base',
@@ -35,7 +35,7 @@ const subcategories = [
   },
   {
     id: 'inner-outer',
-    name: 'Inner Outer',
+    name: 'Chair Plastic Inner Outer',
     description: 'Inner and outer components for chair mechanisms',
     slug: 'inner-outer',
     apiCategory: 'inner-outer',
@@ -49,10 +49,73 @@ const subcategories = [
   },
   {
     id: 'pu-cushions',
-    name: 'P.U. Cushions',
+    name: 'PU Seat & Back Cushion',
     description: 'Comfortable polyurethane cushions',
     slug: 'pu-cushions',
     apiCategory: 'pu-cushions',
+  },
+  {
+    id: 'chair-plastic-leg',
+    name: 'Chair Plastic Leg',
+    description: 'Durable plastic leg components for chairs',
+    slug: 'chair-plastic-leg',
+    apiCategory: 'chair-plastic-leg',
+  },
+  {
+    id: 'school-desk-parts-components',
+    name: 'School Desk Parts Components',
+    description: 'Essential components for school desks',
+    slug: 'school-desk-parts',
+    apiCategory: 'school-desk-parts',
+  },
+  {
+    id: 'sleek-chair-accessories',
+    name: 'Sleek Chair Accessories',
+    description: 'Modern and stylish chair accessories',
+    slug: 'sleek-chair-accessories',
+    apiCategory: 'sleek-chair-accessories',
+  },
+  {
+    id: 'chair-seat-back-plastic-fibre',
+    name: 'Chair Seat & Back Plastic & Fibre',
+    description: 'Plastic and fibre seat and back components',
+    slug: 'chair-seat-back',
+    apiCategory: 'chair-seat-back',
+  },
+  {
+    id: 'chair-handle-base-nylon',
+    name: 'Chair Handle & Base Nylon',
+    description: 'Nylon handles and base components',
+    slug: 'chair-handle-base',
+    apiCategory: 'chair-handle-base',
+  },
+  {
+    id: 'iron-base',
+    name: 'Iron Base',
+    description: 'Sturdy iron base components for chairs',
+    slug: 'iron-base',
+    apiCategory: 'iron-base',
+  },
+  {
+    id: 'chair-mesh-series',
+    name: 'Chair Mesh Series',
+    description: 'Complete mesh series chair components',
+    slug: 'chair-mesh-series',
+    apiCategory: 'chair-mesh-series',
+  },
+  {
+    id: 'chair-mechanism',
+    name: 'Chair Mechanism',
+    description: 'Mechanism components for chair functionality',
+    slug: 'chair-mechanism',
+    apiCategory: 'chair-mechanism',
+  },
+  {
+    id: 'fitting-accessories',
+    name: 'Fitting & Accesories',
+    description: 'Fittings and accessories for chairs',
+    slug: 'fitting-accessories',
+    apiCategory: 'fitting-accessories',
   },
 ];
 
@@ -99,7 +162,7 @@ export default function ChairPartsPage() {
       {/* Subcategory Cards - Different Layout */}
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {subcategories.map((subcategory, index) => (
               <motion.div
                 key={subcategory.id}

@@ -600,6 +600,285 @@ export async function fetchLoungeChairs(): Promise<Product[]> {
   }
 }
 
+export async function fetchCafeBarCounterChair(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Cafe Bar Counter Chair ===');
+    const response = await fetchWithFallback('cafe-bar-counter.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for cafe-bar-counter.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    console.log('Cafe bar counter chair raw data:', JSON.stringify(data).substring(0, 500));
+    const products = normalizeProducts(data);
+    console.log('Cafe bar counter chair loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'cafe-bar-counter'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching cafe bar counter chair:', error);
+    return [];
+  }
+}
+
+export async function fetchSchoolDeskInstituteWritingChair(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching School Desk & Institute Writing Chair ===');
+    const response = await fetchWithFallback('school-desk.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for school-desk.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    console.log('School desk & institute writing chair raw data:', JSON.stringify(data).substring(0, 500));
+    const products = normalizeProducts(data);
+    console.log('School desk & institute writing chair loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'school-desk'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching school desk & institute writing chair:', error);
+    return [];
+  }
+}
+
+export async function fetchCafePlasticTopShell(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Cafe Plastic Top Shell ===');
+    const response = await fetchWithFallback('cafe-plastic-shell.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for cafe-plastic-shell.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    console.log('Cafe plastic top shell raw data:', JSON.stringify(data).substring(0, 500));
+    const products = normalizeProducts(data);
+    console.log('Cafe plastic top shell loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'cafe-plastic-shell'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching cafe plastic top shell:', error);
+    return [];
+  }
+}
+
+export async function fetchChairPlasticLeg(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Chair Plastic Leg ===');
+    const response = await fetchWithFallback('chair-plastic-leg.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for chair-plastic-leg.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Chair Plastic Leg loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'chair-plastic-leg'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching chair plastic leg:', error);
+    return [];
+  }
+}
+
+export async function fetchSchoolDeskPartsComponents(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching School Desk Parts Components ===');
+    const response = await fetchWithFallback('school-desk-parts.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for school-desk-parts.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('School Desk Parts Components loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'school-desk-parts'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching school desk parts components:', error);
+    return [];
+  }
+}
+
+export async function fetchSleekChairAccessories(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Sleek Chair Accessories ===');
+    const response = await fetchWithFallback('sleek-chair-accessories.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for sleek-chair-accessories.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Sleek Chair Accessories loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'sleek-chair-accessories'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching sleek chair accessories:', error);
+    return [];
+  }
+}
+
+export async function fetchChairSeatBackPlasticFibre(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Chair Seat & Back Plastic & Fibre ===');
+    const response = await fetchWithFallback('chair-seat-back.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for chair-seat-back.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Chair Seat & Back Plastic & Fibre loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'chair-seat-back'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching chair seat & back plastic & fibre:', error);
+    return [];
+  }
+}
+
+export async function fetchChairHandleBaseNylon(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Chair Handle & Base Nylon ===');
+    const response = await fetchWithFallback('chair-handle-base.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for chair-handle-base.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Chair Handle & Base Nylon loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'chair-handle-base'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching chair handle & base nylon:', error);
+    return [];
+  }
+}
+
+export async function fetchIronBase(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Iron Base ===');
+    const response = await fetchWithFallback('iron-base.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for iron-base.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Iron Base loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'iron-base'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching iron base:', error);
+    return [];
+  }
+}
+
+export async function fetchChairMeshSeries(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Chair Mesh Series ===');
+    const response = await fetchWithFallback('chair-mesh-series.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for chair-mesh-series.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Chair Mesh Series loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'chair-mesh-series'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching chair mesh series:', error);
+    return [];
+  }
+}
+
+export async function fetchChairMechanism(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Chair Mechanism ===');
+    const response = await fetchWithFallback('chair-mechanism.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for chair-mechanism.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Chair Mechanism loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'chair-mechanism'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching chair mechanism:', error);
+    return [];
+  }
+}
+
+export async function fetchFittingAccessories(): Promise<Product[]> {
+  try {
+    console.log('=== Fetching Fitting & Accesories ===');
+    const response = await fetchWithFallback('fitting-accessories.json');
+    
+    if (!response) {
+      console.error('All API URL attempts failed for fitting-accessories.json');
+      return [];
+    }
+    
+    const data = await response.json();
+    const products = normalizeProducts(data);
+    console.log('Fitting & Accesories loaded:', products.length);
+    
+    return products
+      .map((p, index) => normalizeProduct(p, index, 'fitting-accessories'))
+      .filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error('Error fetching fitting & accessories:', error);
+    return [];
+  }
+}
+
 export async function fetchChairParts(): Promise<Product[]> {
   try {
     console.log('=== Fetching Chair Parts ===');
@@ -898,6 +1177,42 @@ export async function fetchProductById(category: string, id: string): Promise<Pr
       case 'lounge':
         products = await fetchLoungeChairs();
         break;
+      case 'cafe-bar-counter':
+        products = await fetchCafeBarCounterChair();
+        break;
+      case 'school-desk':
+        products = await fetchSchoolDeskInstituteWritingChair();
+        break;
+      case 'cafe-plastic-shell':
+        products = await fetchCafePlasticTopShell();
+        break;
+      case 'chair-plastic-leg':
+        products = await fetchChairPlasticLeg();
+        break;
+      case 'school-desk-parts':
+        products = await fetchSchoolDeskPartsComponents();
+        break;
+      case 'sleek-chair-accessories':
+        products = await fetchSleekChairAccessories();
+        break;
+      case 'chair-seat-back':
+        products = await fetchChairSeatBackPlasticFibre();
+        break;
+      case 'chair-handle-base':
+        products = await fetchChairHandleBaseNylon();
+        break;
+      case 'iron-base':
+        products = await fetchIronBase();
+        break;
+      case 'chair-mesh-series':
+        products = await fetchChairMeshSeries();
+        break;
+      case 'chair-mechanism':
+        products = await fetchChairMechanism();
+        break;
+      case 'fitting-accessories':
+        products = await fetchFittingAccessories();
+        break;
       case 'chairparts':
         products = await fetchChairParts();
         break;
@@ -963,6 +1278,100 @@ export async function fetchProductById(category: string, id: string): Promise<Pr
       console.error('Error details:', error.message, error.stack);
     }
     return null;
+  }
+}
+
+// Helper function to fetch all products for a category (for navigation)
+export async function fetchProductsByCategory(category: string): Promise<Product[]> {
+  try {
+    let products: Product[] = [];
+    
+    switch (category) {
+      case 'plastic':
+        products = await fetchPlasticChairs();
+        break;
+      case 'cafe':
+        products = await fetchCafeChairs();
+        break;
+      case 'cafeteria':
+        products = await fetchCafeteriaChairs();
+        break;
+      case 'mesh':
+      case 'mesh-back':
+        products = await fetchMeshBack();
+        break;
+      case 'table':
+        products = await fetchCafeteriaTables();
+        break;
+      case 'lounge':
+        products = await fetchLoungeChairs();
+        break;
+      case 'cafe-bar-counter':
+        products = await fetchCafeBarCounterChair();
+        break;
+      case 'school-desk':
+        products = await fetchSchoolDeskInstituteWritingChair();
+        break;
+      case 'cafe-plastic-shell':
+        products = await fetchCafePlasticTopShell();
+        break;
+      case 'chair-plastic-leg':
+        products = await fetchChairPlasticLeg();
+        break;
+      case 'school-desk-parts':
+        products = await fetchSchoolDeskPartsComponents();
+        break;
+      case 'sleek-chair-accessories':
+        products = await fetchSleekChairAccessories();
+        break;
+      case 'chair-seat-back':
+        products = await fetchChairSeatBackPlasticFibre();
+        break;
+      case 'chair-handle-base':
+        products = await fetchChairHandleBaseNylon();
+        break;
+      case 'iron-base':
+        products = await fetchIronBase();
+        break;
+      case 'chair-mesh-series':
+        products = await fetchChairMeshSeries();
+        break;
+      case 'chair-mechanism':
+        products = await fetchChairMechanism();
+        break;
+      case 'fitting-accessories':
+        products = await fetchFittingAccessories();
+        break;
+      case 'chairparts':
+        products = await fetchChairParts();
+        break;
+      case 'adjustable-handle':
+        products = await fetchAdjustableHandle();
+        break;
+      case 'aremrest-pp-base':
+        products = await fetchAremrestPPBase();
+        break;
+      case 'wheels':
+        products = await fetchWheels();
+        break;
+      case 'inner-outer':
+        products = await fetchInnerOuter();
+        break;
+      case 'pu-moulded-chair':
+        products = await fetchPUMouldedChair();
+        break;
+      case 'pu-cushions':
+        products = await fetchPUCushions();
+        break;
+      default:
+        console.warn(`Unknown category: ${category}`);
+        return [];
+    }
+    
+    return products;
+  } catch (error) {
+    console.error('Error fetching products by category:', error);
+    return [];
   }
 }
 

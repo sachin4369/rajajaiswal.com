@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/about', label: 'Profile' },
   { href: '/products', label: 'Products' },
   { href: '/services', label: 'Services' },
-  { href: '/catalog', label: 'Download' },
+  { href: '/catalog', label: 'Catalog' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
@@ -51,10 +51,25 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {/* Search Icon */}
+            <Link
+              href="/search"
+              className="p-2 text-gray-600 hover:text-teal-600 transition-colors rounded-md hover:bg-teal-50"
+              aria-label="Search products"
+            >
+              <Search className="w-5 h-5" />
+            </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button and search */}
           <div className="lg:hidden flex items-center space-x-2">
+            <Link
+              href="/search"
+              className="p-2 text-gray-600 hover:text-teal-600 transition-colors rounded-md"
+              aria-label="Search products"
+            >
+              <Search className="w-6 h-6" />
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 text-gray-600 hover:text-teal-600"

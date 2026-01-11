@@ -75,7 +75,7 @@ export default function InnerOuterSubcategoryPage() {
                   </Link>
                 </li>
                 <li>/</li>
-                <li className="font-medium text-gray-900 dark:text-gray-100">Inner Outer</li>
+                <li className="font-medium text-gray-900 dark:text-gray-100">Chair Plastic Inner Outer</li>
               </ol>
             </nav>
             
@@ -119,7 +119,7 @@ export default function InnerOuterSubcategoryPage() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
               <div className="flex items-center gap-4 flex-wrap">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                  Inner Outer
+                  Chair Plastic Inner Outer
                 </h1>
                 {!loading && (
                   <span className="px-3 py-1.5 bg-teal-50 dark:bg-teal-900/20 rounded-lg border border-teal-200 dark:border-teal-800 text-sm font-semibold text-teal-700 dark:text-teal-300">

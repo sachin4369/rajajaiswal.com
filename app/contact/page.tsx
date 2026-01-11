@@ -1,18 +1,29 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Clock } from 'lucide-react';
 
 export default function ContactPage() {
+  const searchParams = useSearchParams();
+  const productName = searchParams.get('product') || '';
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     mobile: '',
+    productName: productName,
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
+
+  useEffect(() => {
+    if (productName) {
+      setFormData(prev => ({ ...prev, productName: productName }));
+    }
+  }, [productName]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +44,7 @@ export default function ContactPage() {
       if (response.ok) {
         setStatus('success');
         setStatusMessage('Thank you! Your message has been sent successfully. We will get back to you soon.');
-        setFormData({ name: '', email: '', mobile: '', message: '' });
+        setFormData({ name: '', email: '', mobile: '', productName: productName || '', message: '' });
       } else {
         setStatus('error');
         setStatusMessage(data.error || 'Failed to send message. Please try again.');
@@ -236,6 +247,27 @@ export default function ContactPage() {
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
+
+                  {productName && (
+                    <div>
+                      <label
+                        htmlFor="productName"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      >
+                        Product Name
+                      </label>
+                      <input
+                        type="text"
+                        id="productName"
+                        name="productName"
+                        value={formData.productName}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-teal-600 dark:focus:ring-teal-400 focus:border-transparent bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
+                        placeholder="Product Name"
+                        readOnly
+                      />
+                    </div>
+                  )}
 
                   <div>
                     <label

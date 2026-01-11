@@ -4,7 +4,7 @@ import { ContactFormData } from '@/types';
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, mobile, message } = body;
+    const { name, email, mobile, productName, message } = body;
 
     // Validate required fields
     if (!name || !email || !mobile || !message) {
@@ -46,10 +46,11 @@ export async function POST(request: NextRequest) {
     // In production, replace this with actual email sending
     console.log('Contact Form Submission:', {
       to: 'sachinchohi@gmail.com',
-      subject: `Contact Form Submission from ${name}`,
+      subject: `Contact Form Submission from ${name}${productName ? ` - Product: ${productName}` : ''}`,
       name,
       email,
       mobile,
+      productName: productName || 'N/A',
       message,
     });
 

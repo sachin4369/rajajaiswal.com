@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Download, Check } from 'lucide-react';
 import Image from 'next/image';
+import { HeroSlider } from '@/components/HeroSlider';
 
 // Main product categories - highlighted
 const mainCategories = [
@@ -108,56 +109,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative w-full h-[450px] md:h-[550px] bg-gradient-to-r from-black via-teal-950 to-black">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80)',
-          }}
-        />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-            >
-              Premium Office Chair Parts & Cafeteria Chairs
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
-            >
-              Quality components for comfortable and durable office furniture. Explore our comprehensive range of products designed for modern workplaces.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                href="/products"
-                className="inline-flex items-center justify-center px-8 py-3 bg-white text-gray-900 font-semibold rounded-md hover:bg-gray-100 transition-colors"
-              >
-                Explore Products
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-              <Link
-                href="/catalog"
-                className="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-900 transition-colors"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Catalog
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-white overflow-x-hidden" style={{ backgroundColor: '#ffffff' }}>
+      {/* Hero Section with Slider */}
+      <HeroSlider />
 
       {/* Featured Main Categories - Highlighted */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -273,6 +227,8 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {productCategories.map((category, index) => {
+              // Hide items beyond 4 on mobile
+              const isHiddenOnMobile = index >= 4;
               // Use URL from category if available, otherwise use href
               const categoryUrl = (category as any).url || (category as any).URL || category.href;
               const isExternalUrl = categoryUrl.startsWith('http://') || categoryUrl.startsWith('https://');
@@ -304,7 +260,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ y: -4 }}
-                  className="group"
+                  className={`group ${isHiddenOnMobile ? 'hidden md:block' : ''}`}
                 >
                   {isExternalUrl ? (
                     <a href={categoryUrl} target="_blank" rel="noopener noreferrer">
@@ -323,7 +279,7 @@ export default function Home() {
       </section>
 
       {/* Download Section */}
-      <section className="py-20 bg-gray-50 ">
+      <section className="pt-20 pb-32 bg-gray-50 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
@@ -353,29 +309,45 @@ export default function Home() {
               whileHover={{ y: -4 }}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200"
             >
-              <Link href="/catalog">
-                <div className="relative h-56 bg-gray-100">
+              <div 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/images/catalogs/partscatalog25.pdf';
+                  link.download = 'partscatalog25.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="cursor-pointer group flex flex-col sm:flex-row sm:items-start"
+              >
+                <div className="relative w-full h-40 sm:h-auto sm:w-32 sm:flex-shrink-0 bg-gray-100 overflow-hidden sm:mt-6 sm:aspect-square">
                   <Image
-                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
-                    alt="Office Chair Parts Catalog"
+                    src="/images/catalogs/partscatalog25.jpg"
+                    alt="Chair Parts Catalog"
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain group-hover:scale-105 transition-transform duration-300"
+                    sizes="128px"
+                    unoptimized
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                      <Download className="w-5 h-5 text-teal-600" />
+                    </div>
+                  </div>
                 </div>
-                <div className="p-6">
+                <div className="px-6 pt-6 pb-6 flex-1 sm:pt-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Chair Parts Catalog
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
+                  <p className="text-gray-600 mb-2 text-sm">
                     Complete catalog of all office chair parts and components
                   </p>
-                  <div className="flex items-center text-teal-600 font-medium text-sm">
+                  <div className="flex items-center text-teal-600 font-medium text-sm mb-6">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
 
             <motion.div
@@ -385,29 +357,45 @@ export default function Home() {
               whileHover={{ y: -4 }}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200"
             >
-              <Link href="/catalog">
-                <div className="relative h-56 bg-gray-100">
+              <div 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/images/catalogs/cafecatalog25.pdf';
+                  link.download = 'cafecatalog25.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="cursor-pointer group flex flex-col sm:flex-row sm:items-start"
+              >
+                <div className="relative w-full h-40 sm:h-auto sm:w-32 sm:flex-shrink-0 bg-gray-100 overflow-hidden sm:mt-6 sm:aspect-square">
                   <Image
-                    src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80"
-                    alt="Cafeteria Chairs Catalog"
+                    src="/images/catalogs/cafecatalog25.jpg"
+                    alt="Cafe Chair Catalog"
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain group-hover:scale-105 transition-transform duration-300"
+                    sizes="128px"
+                    unoptimized
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                      <Download className="w-5 h-5 text-teal-600" />
+                    </div>
+                  </div>
                 </div>
-                <div className="p-6">
+                <div className="px-6 pt-6 pb-6 flex-1 sm:pt-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Cafe Chair Catalog
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
+                  <p className="text-gray-600 mb-2 text-sm">
                     Explore our full range of cafeteria and dining chairs
                   </p>
-                  <div className="flex items-center text-teal-600 font-medium text-sm">
+                  <div className="flex items-center text-teal-600 font-medium text-sm mb-6">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -476,7 +464,9 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {trendingProducts.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
+                <div key={product.id} className={index >= 4 ? 'hidden md:block' : ''}>
+                  <ProductCard product={product} index={index} />
+                </div>
               ))}
             </div>
           </div>

@@ -31,6 +31,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   mobile: string;
+  productName?: string;
   message: string;
 }
 
