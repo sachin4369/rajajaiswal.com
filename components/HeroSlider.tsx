@@ -19,7 +19,7 @@ const slides = [
     id: 2,
     title: 'Modern Cafeteria Chairs & Seating Solutions',
     description: 'Stylish and ergonomic seating solutions for modern workplaces and dining areas. Discover comfort and durability in every design.',
-    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80',
     gradient: 'from-teal-950 via-black to-teal-950',
     cta1: { text: 'View Collection', href: '/products/cafeteria-chairs', icon: ArrowRight },
     cta2: { text: 'Download Catalog', href: '/catalog', icon: Download },
