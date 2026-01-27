@@ -93,17 +93,9 @@ export default function Home() {
 
   useEffect(() => {
     async function loadProducts() {
-      const [plastic, cafeteria, cafe, mesh, table, lounge] = await Promise.all([
-        fetchPlasticChairs(),
-        fetchCafeteriaChairs(),
-        fetchCafeChairs(),
-        fetchMeshBack(),
-        fetchCafeteriaTables(),
-        fetchLoungeChairs(),
-      ]);
-      
-      const allProducts = [...plastic, ...cafeteria, ...cafe, ...mesh, ...table, ...lounge];
-      setTrendingProducts(allProducts.slice(0, 8));
+      // For homepage featured products, show only Cafeteria Chairs
+      const cafeteria = await fetchCafeteriaChairs();
+      setTrendingProducts(cafeteria.slice(0, 8));
     }
     loadProducts();
   }, []);
