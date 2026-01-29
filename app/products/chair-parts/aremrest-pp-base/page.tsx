@@ -242,7 +242,7 @@ export default function AremrestPPBaseSubcategoryPage() {
                           <div className="flex-1 flex flex-col justify-between min-w-0">
                             <div>
                               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
-                                {product.name}
+                                {(product as any).ModelNo || (product as any).modelNo || (product as any).model_no || product.name}
                               </h3>
                               {product.description && (
                                 <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed">

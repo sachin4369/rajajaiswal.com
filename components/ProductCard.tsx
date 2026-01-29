@@ -52,6 +52,7 @@ function getCategorySlug(category: string): string {
 }
 
 export function ProductCard({ product, index = 0, categoryOverride }: ProductCardProps) {
+  const effectiveCategory = (categoryOverride || product.category || '').toLowerCase();
   const categorySlug = categoryOverride || getCategorySlug(product.category);
   const [imageError, setImageError] = useState(false);
   
@@ -91,6 +92,18 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
   const isExternalImage = imgSrc.startsWith('http://') || imgSrc.startsWith('https://');
   const hasApiImage = apiImageUrl && apiImageUrl !== '/placeholder.svg' && !imageError;
   
+  // Determine display name
+  const modelNo =
+    (product as any).ModelNo ||
+    (product as any).modelNo ||
+    (product as any).model_no ||
+    (product as any).MODELNO;
+
+  const displayName =
+    effectiveCategory === 'aremrest-pp-base'
+      ? modelNo || product.name || 'Unnamed Product'
+      : product.name || 'Unnamed Product';
+
   // Common card content
   const cardContent = (
     <>
@@ -99,7 +112,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
         {!hasApiImage ? (
           <img
             src="/placeholder.svg"
-            alt={product.name}
+            alt={displayName}
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
             style={{ padding: '8px', objectFit: 'contain', display: 'block', maxWidth: '100%', maxHeight: '100%' }}
           />
@@ -107,7 +120,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
           <Image
             key={`${product.id}-${apiImageUrl}`}
             src={apiImageUrl}
-            alt={product.name}
+            alt={displayName}
             fill
             className="object-contain group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
@@ -132,7 +145,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
       </div>
       <div className="p-4">
         <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
-          {product.name || 'Unnamed Product'}
+          {displayName}
         </h3>
         {product.description && (
           <p className="text-gray-600 text-xs mb-3 line-clamp-2">

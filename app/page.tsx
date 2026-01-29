@@ -113,7 +113,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
             >
               Our Featured Categories
             </motion.h2>
@@ -147,7 +147,7 @@ export default function Home() {
                   {(() => {
                     const categoryContent = (
                       <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-500">
-                        <div className="relative h-64 md:h-80 w-full overflow-hidden bg-gradient-to-br from-teal-50 to-teal-100">
+                        <div className="relative h-48 md:h-64 w-full overflow-hidden bg-gradient-to-br from-teal-50 to-teal-100">
                           <Image
                             src={category.image}
                             alt={category.name}
@@ -162,8 +162,8 @@ export default function Home() {
                             </span>
                           </div>
                         </div>
-                        <div className="p-6 md:p-8">
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
+                        <div className="px-6 md:px-8 pt-4 md:pt-5 pb-6 md:pb-6">
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
                             {category.name}
                           </h3>
                           <p className="text-gray-600 mb-4 text-base md:text-lg">
@@ -202,7 +202,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-gray-900  mb-4"
+              className="text-2xl md:text-3xl font-bold text-gray-900  mb-4"
             >
               Office Chair Parts
             </motion.h2>
@@ -270,15 +270,150 @@ export default function Home() {
         </div>
       </section>
 
+      {/* RJPI as Exhibitors in Expo */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto mb-6 text-center">
+            <div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-2xl md:text-3xl font-bold text-gray-900 mb-3"
+              >
+                RJPI as Exhibitors in Expo
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-lg text-gray-600"
+              >
+                Watch highlights from RJPI's participation in leading furniture and manufacturing expos.
+              </motion.p>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="relative w-full h-72 md:h-[22rem] overflow-hidden rounded-2xl shadow-xl bg-black">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                title="RJPI as Exhibitors in Expo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-6 flex justify-center"
+          >
+            <Link
+              href="/expo"
+              className="inline-flex items-center px-5 py-2 rounded-full border border-teal-600 text-teal-600 font-semibold hover:bg-teal-600 hover:text-white transition-colors"
+            >
+              View All Expo Videos
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Statement Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Our Vision
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Committed to providing high-quality, reliable, and affordable office furniture solutions
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {visionFeatures.map((feature, index) => (
+                <motion.div
+                  key={feature}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start p-4 bg-gray-50 rounded-lg border border-gray-200"
+                >
+                  <Check className="w-5 h-5 text-teal-600 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-900 font-medium">
+                    {feature}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      {trendingProducts.length > 0 && (
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  Featured Products
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Our most popular items
+                </p>
+              </div>
+              <Link
+                href="/products"
+                className="hidden md:flex items-center text-gray-900 font-semibold hover:underline"
+              >
+                View All
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {trendingProducts.map((product, index) => (
+                <div key={product.id} className={index >= 4 ? 'hidden md:block' : ''}>
+                  <ProductCard product={product} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Download Section */}
-      <section className="pt-20 pb-32 bg-gray-50 ">
+      <section className="pt-16 pb-24 bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-gray-900  mb-4"
+              className="text-2xl md:text-3xl font-bold text-gray-900  mb-4"
             >
               Download Our Catalogs
             </motion.h2>
@@ -392,78 +527,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Vision Statement Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Committed to providing high-quality, reliable, and affordable office furniture solutions
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {visionFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start p-4 bg-gray-50 rounded-lg border border-gray-200"
-                >
-                  <Check className="w-5 h-5 text-teal-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-900 font-medium">
-                    {feature}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      {trendingProducts.length > 0 && (
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                  Featured Products
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Our most popular items
-                </p>
-              </div>
-              <Link
-                href="/products"
-                className="hidden md:flex items-center text-gray-900 font-semibold hover:underline"
-              >
-                View All
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {trendingProducts.map((product, index) => (
-                <div key={product.id} className={index >= 4 ? 'hidden md:block' : ''}>
-                  <ProductCard product={product} index={index} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 }
