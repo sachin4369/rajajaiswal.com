@@ -125,11 +125,12 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
             className="object-contain group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             style={{ padding: '8px', objectFit: 'contain' }}
-            unoptimized={isExternalImage}
+            unoptimized={isExternalImage || apiImageUrl.startsWith('/images/')}
             priority={shouldPrioritize}
             loading={shouldPrioritize ? 'eager' : 'lazy'}
-            onError={() => {
+            onError={(e) => {
               // Silently handle image load errors - fallback to placeholder
+              console.warn(`Image failed to load: ${apiImageUrl}`, e);
               if (!imageError) {
                 setImageError(true);
               }

@@ -228,6 +228,10 @@ export default function AremrestPPBaseSubcategoryPage() {
                                 className="w-full h-full object-contain p-4"
                                 loading="lazy"
                                 decoding="async"
+                                onError={(e) => {
+                                  console.warn(`Image failed to load: ${product.image}`);
+                                  (e.target as HTMLImageElement).src = '/placeholder.svg';
+                                }}
                               />
                             ) : (
                               <img
