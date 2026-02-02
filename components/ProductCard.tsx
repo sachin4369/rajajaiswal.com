@@ -79,6 +79,21 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
                        ((product as any).Url || (product as any).URL) :
                       undefined;
   
+  // Debug logging for aremrest-pp-base category
+  if (effectiveCategory === 'aremrest-pp-base' && index < 3) {
+    console.log(`[ProductCard] Product "${product.name || (product as any).ModelNo}" image check:`, {
+      apiImageUrl,
+      productImage: product.image,
+      hasApiImage: !!apiImageUrl,
+      allFields: {
+        img: (product as any).img,
+        imageUrl: (product as any).imageUrl,
+        Url: (product as any).Url,
+        URL: (product as any).URL,
+      }
+    });
+  }
+  
   // Determine the image source - use placeholder if error or no API image
   const imgSrc = imageError ? '/placeholder.svg' : (apiImageUrl || '/placeholder.svg');
   
@@ -129,8 +144,19 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
             priority={shouldPrioritize}
             loading={shouldPrioritize ? 'eager' : 'lazy'}
             onError={(e) => {
-              // Silently handle image load errors - fallback to placeholder
-              console.warn(`Image failed to load: ${apiImageUrl}`, e);
+              // Log detailed error information for debugging
+              console.error(`❌ Image 404 Error for product "${displayName}":`, {
+                attemptedUrl: apiImageUrl,
+                productId: product.id,
+                category: effectiveCategory,
+                allImageFields: {
+                  image: product.image,
+                  img: (product as any).img,
+                  imageUrl: (product as any).imageUrl,
+                  Url: (product as any).Url,
+                  URL: (product as any).URL,
+                }
+              });
               if (!imageError) {
                 setImageError(true);
               }
