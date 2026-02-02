@@ -268,7 +268,10 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
       // Log all string fields that might be images
       const stringFields = Object.entries(p)
         .filter(([k, v]) => typeof v === 'string' && v.trim())
-        .map(([k, v]) => `${k}: "${v.substring(0, 50)}${v.length > 50 ? '...' : ''}"`);
+        .map(([k, v]) => {
+          const str = v as string;
+          return `${k}: "${str.substring(0, 50)}${str.length > 50 ? '...' : ''}"`;
+        });
       if (stringFields.length > 0) {
         console.warn(`   All string fields in product:`, stringFields);
       }
