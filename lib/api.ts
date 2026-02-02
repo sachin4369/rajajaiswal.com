@@ -89,9 +89,9 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
     }
   }
   
-  // For mesh products, also check ALL string fields that might be image filenames
+  // For mesh and aremrest-pp-base products, also check ALL string fields that might be image filenames
   // (sometimes APIs use generic field names like "file", "src", "path", etc.)
-  if (!image && category === 'mesh') {
+  if (!image && (category === 'mesh' || category === 'aremrest-pp-base')) {
     const allKeys = Object.keys(p);
     const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.PNG', '.JPG', '.JPEG', '.GIF', '.WEBP'];
     const excludedKeys = ['name', 'description', 'id', 'price', 'category', 'specifications', 'features', 'url', 'link', 'title', 'desc', 'details'];
@@ -159,10 +159,10 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
     }
   }
   
-  // Special handling for mesh category - log all possible image fields and ALL keys
-  if (category === 'mesh') {
-    console.log(`Mesh product "${name}" - Full product object keys:`, Object.keys(p));
-    console.log(`Mesh product "${name}" - Checking for image fields:`, {
+  // Special handling for mesh and aremrest-pp-base categories - log all possible image fields and ALL keys
+  if (category === 'mesh' || category === 'aremrest-pp-base') {
+    console.log(`${category} product "${name}" - Full product object keys:`, Object.keys(p));
+    console.log(`${category} product "${name}" - Checking for image fields:`, {
       image: p.image,
       img: p.img,
       imageUrl: p.imageUrl,
@@ -171,6 +171,8 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
       picture: p.picture,
       thumbnail: p.thumbnail,
       thumb: p.thumb,
+      Url: p.Url,
+      URL: p.URL,
       allImageKeys: Object.keys(p).filter(k => {
         const lowerK = k.toLowerCase();
         return lowerK.includes('img') || lowerK.includes('image') || 
@@ -179,8 +181,10 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
       }),
       allKeys: Object.keys(p)
     });
-    // Log the full product object for debugging
-    console.log(`Mesh product "${name}" - Full product object:`, JSON.stringify(p, null, 2));
+    // Log the full product object for debugging (first product only to avoid spam)
+    if (index === 0) {
+      console.log(`${category} product "${name}" - Full product object (first product):`, JSON.stringify(p, null, 2));
+    }
   }
   
   // Use image EXACTLY as provided by API - preserve the URL/path as-is
@@ -248,17 +252,26 @@ function normalizeProduct(p: any, index: number, category: string): Product | nu
   console.log(`Final image path for "${name}" (category: ${category}):`, normalized.image || 'none (will check original API fields)');
   console.log(`Original image field from API:`, p.image || p.img || p.imageUrl || p.image_url || 'none found');
   
-  // For mesh products, show detailed image extraction info
-  if (category === 'mesh') {
-    console.log(`✓ Mesh product "${name}" - Final image will be: ${normalized.image || 'none (checking original API fields)'}`);
+  // For mesh and aremrest-pp-base products, show detailed image extraction info
+  if (category === 'mesh' || category === 'aremrest-pp-base') {
+    console.log(`✓ ${category} product "${name}" - Final image will be: ${normalized.image || 'none (checking original API fields)'}`);
     if (!normalized.image || normalized.image === '/placeholder.svg') {
-      console.warn(`⚠️ WARNING: Mesh product "${name}" has no normalized image! All product keys:`, Object.keys(p));
+      console.warn(`⚠️ WARNING: ${category} product "${name}" has no normalized image! All product keys:`, Object.keys(p));
       console.warn(`   Original API image fields:`, {
         image: p.image,
         img: p.img,
         imageUrl: p.imageUrl,
         image_url: p.image_url,
+        Url: p.Url,
+        URL: p.URL,
       });
+      // Log all string fields that might be images
+      const stringFields = Object.entries(p)
+        .filter(([k, v]) => typeof v === 'string' && v.trim())
+        .map(([k, v]) => `${k}: "${v.substring(0, 50)}${v.length > 50 ? '...' : ''}"`);
+      if (stringFields.length > 0) {
+        console.warn(`   All string fields in product:`, stringFields);
+      }
     }
   }
   
