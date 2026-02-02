@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Raja Jaiswal Plastic Industries - Premium Office Chair Parts & Cafeteria Chairs",
   description: "Leading manufacturer of high-quality office chair parts and cafeteria chairs. Explore our wide range of products.",
   themeColor: "#ffffff",
+};
+
+export const viewport: Viewport = {
   colorScheme: "light",
 };
 

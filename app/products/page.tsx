@@ -3,21 +3,21 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-
+import Image from 'next/image';
 const categories = [
   {
     id: 'chair-parts',
     name: 'Chair Parts & Components',
     description: 'Essential components and parts for office chairs',
     slug: 'chairparts',
-    image: '/images/chair-parts.jpg',
+    image: '/images/chair-parts-components.jpg',
   },
   {
     id: 'cafeteria-chairs',
     name: 'Cafeteria Chairs & Components',
     description: 'Stylish and comfortable seating solutions for cafeterias',
     slug: 'cafeteria',
-    image: '/images/cafeteria-chairs.jpg',
+    image: '/images/cafe-parts-components.jpg',
   },
 ];
 
@@ -58,25 +58,15 @@ export default function ProductsPage() {
                 <Link href={`/products/${category.id}`}>
                   <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 h-full flex flex-col">
                     {/* Image Container */}
-                    <div className="relative h-64 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-32 h-32 bg-teal-600/10 dark:bg-teal-400/10 rounded-full flex items-center justify-center">
-                          <svg
-                            className="w-16 h-16 text-teal-600 dark:text-teal-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={1.5}
-                              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     
                     {/* Content */}

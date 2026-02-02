@@ -6,28 +6,22 @@ import { ArrowRight } from 'lucide-react';
 
 const expoVideos = [
   {
-    id: 'VIDEO_ID_HERE',
-    title: 'RJ as Exhibitors in Expo – Highlights',
-    description: 'Overview of RJ Chair Components at a leading furniture and manufacturing expo.',
+    id: 'meqfktc9pto',
+    embedUrl: 'https://www.youtube.com/embed/meqfktc9pto?si=uJHcgg3rphYFyHb5&start=4',
+    watchUrl: 'https://www.youtube.com/watch?v=meqfktc9pto&t=4',
+    title: 'RJPI as Exhibitors in Expo – Highlights',
+    description:
+      "Watch highlights from RJPI's participation in leading furniture and manufacturing expos.",
     duration: '4:36',
   },
   {
-    id: 'VIDEO_ID_2',
-    title: 'RJ at Furniture Expo – Product Showcase',
-    description: 'Showcasing our latest cafeteria and office chair components.',
-    duration: '3:24',
-  },
-  {
-    id: 'VIDEO_ID_3',
-    title: 'Behind The Scenes – RJ Manufacturing & Quality',
-    description: 'A look inside our manufacturing, quality, and testing processes.',
-    duration: '5:12',
-  },
-  {
-    id: 'VIDEO_ID_4',
-    title: 'Customer Interactions at Expo',
-    description: 'Conversations with visitors and clients at the expo booth.',
-    duration: '4:01',
+    id: '9dz_Gpuy_wM',
+    embedUrl: 'https://www.youtube.com/embed/9dz_Gpuy_wM?si=I66b_U0qyiQHeQjw&start=3',
+    watchUrl: 'https://www.youtube.com/watch?v=9dz_Gpuy_wM&t=3',
+    title: 'RJPI – Expo Showcase',
+    description:
+      'Additional highlights showcasing RJPI products and presence at major expos.',
+    duration: '3:30',
   },
 ];
 
@@ -77,7 +71,7 @@ export default function ExpoPage() {
                 <div className="relative w-full aspect-video bg-black">
                   <iframe
                     className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${video.id}`}
+                    src={video.embedUrl ?? `https://www.youtube.com/embed/${video.id}`}
                     title={video.title}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -96,7 +90,7 @@ export default function ExpoPage() {
                     {video.description}
                   </p>
                   <a
-                    href={`https://www.youtube.com/watch?v=${video.id}`}
+                    href={video.watchUrl ?? `https://www.youtube.com/watch?v=${video.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-700"

@@ -103,7 +103,7 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
     effectiveCategory === 'aremrest-pp-base'
       ? modelNo || product.name || 'Unnamed Product'
       : product.name || 'Unnamed Product';
-
+  
   // Common card content
   const cardContent = (
     <>

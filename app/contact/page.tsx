@@ -119,7 +119,7 @@ function ContactForm() {
                       href="mailto:sachinchohi@gmail.com"
                       className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
                     >
-                      sachinchohi@gmail.com
+                      rajajaiswal2000@gmail.com
                     </a>
                   </div>
                 </motion.div>
@@ -136,7 +136,7 @@ function ContactForm() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">+91 XXXXX XXXXX</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">+91 9810087153</p>
                   </div>
                 </motion.div>
 
@@ -169,7 +169,7 @@ function ContactForm() {
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Business Hours</h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      Monday - Sunday: 10:00 AM - 08:00 PM
                     </p>
                   </div>
                 </motion.div>

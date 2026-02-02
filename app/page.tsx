@@ -16,7 +16,7 @@ const mainCategories = [
     id: 'cafe',
     name: 'Cafe Chairs',
     description: 'Modern and elegant cafe seating',
-    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80',
+    image: '/images/cafe-chairs.jpg',
     href: '/products?category=cafe',
     featured: true,
   },
@@ -24,7 +24,7 @@ const mainCategories = [
     id: 'mesh',
     name: 'Mesh Back',
     description: 'Ergonomic mesh back chairs',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
+    image: '/images/mesh-back-chairs.jpg',
     href: '/products?category=mesh',
     featured: true,
   },
@@ -32,7 +32,7 @@ const mainCategories = [
     id: 'table',
     name: 'Cafeteria Tables',
     description: 'Durable and functional dining tables',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    image: '/images/cafeteria-tables.jpg',
     href: '/products?category=table',
     featured: true,
   },
@@ -40,7 +40,7 @@ const mainCategories = [
     id: 'lounge',
     name: 'Lounge Chairs',
     description: 'Comfortable lounge seating solutions',
-    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80',
+    image: '/images/lounge-chairs.jpg',
     href: '/products?category=lounge',
     featured: true,
   },
@@ -275,61 +275,61 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto mb-6 text-center">
             <div>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
                 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3"
-              >
+            >
                 RJPI as Exhibitors in Expo
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
                 className="text-lg text-gray-600"
-              >
+            >
                 Watch highlights from RJPI's participation in leading furniture and manufacturing expos.
-              </motion.p>
+            </motion.p>
             </div>
           </div>
 
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
             <div className="relative w-full h-72 md:h-[22rem] overflow-hidden rounded-2xl shadow-xl bg-black">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                title="RJPI as Exhibitors in Expo"
+                src="https://www.youtube.com/embed/meqfktc9pto?si=uJHcgg3rphYFyHb5&start=4"
+                title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
             </div>
-          </motion.div>
+            </motion.div>
 
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             className="mt-6 flex justify-center"
-          >
+            >
             <Link
               href="/expo"
               className="inline-flex items-center px-5 py-2 rounded-full border border-teal-600 text-teal-600 font-semibold hover:bg-teal-600 hover:text-white transition-colors"
             >
               View All Expo Videos
               <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </motion.div>
+              </Link>
+            </motion.div>
         </div>
       </section>
 
