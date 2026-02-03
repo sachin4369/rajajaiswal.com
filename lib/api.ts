@@ -329,25 +329,51 @@ function normalizeProducts(data: any): Product[] {
 
 // Helper function to try multiple API base URLs
 async function fetchWithFallback(fileName: string): Promise<Response | null> {
+  const timeout = 10000; // 10 second timeout
+  
   for (const base of API_BASE_OPTIONS) {
     try {
       const url = `${base}/${fileName}`;
-      console.log(`Trying URL: ${url}`);
-      const response = await fetch(url, {
-        cache: 'no-store',
-        headers: {
-          'Accept': 'application/json',
-        },
-      });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
       
-      if (response.ok) {
-        console.log(`✓ Success with URL: ${url}`);
-        return response;
-      } else {
-        console.warn(`✗ Failed with URL: ${url} - Status: ${response.status}`);
+      try {
+        const response = await fetch(url, {
+          cache: 'no-store',
+          headers: {
+            'Accept': 'application/json',
+          },
+          signal: controller.signal,
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (response.ok) {
+          return response;
+        } else {
+          console.warn(`✗ Failed with URL: ${url} - Status: ${response.status}`);
+        }
+      } catch (fetchError: any) {
+        clearTimeout(timeoutId);
+        if (fetchError.name === 'AbortError') {
+          console.warn(`✗ Timeout with URL: ${url}`);
+        } else if (fetchError.message?.includes('suspended') || 
+                   fetchError.message?.includes('ERR_NETWORK_IO_SUSPENDED')) {
+          // Network I/O suspended - browser may have suspended the request
+          // Try next URL or return null gracefully
+          console.warn(`✗ Network I/O suspended for URL: ${url}`);
+        } else {
+          throw fetchError;
+        }
       }
-    } catch (error) {
-      console.warn(`✗ Error with URL: ${base}/${fileName}`, error);
+    } catch (error: any) {
+      // Handle network suspension errors gracefully
+      if (error?.message?.includes('suspended') || 
+          error?.message?.includes('ERR_NETWORK_IO_SUSPENDED')) {
+        console.warn(`✗ Network I/O suspended for ${base}/${fileName}`);
+      } else {
+        console.warn(`✗ Error with URL: ${base}/${fileName}`, error);
+      }
     }
   }
   
@@ -460,17 +486,14 @@ export async function fetchCafeChairs(): Promise<Product[]> {
 
 export async function fetchCafeteriaChairs(): Promise<Product[]> {
   try {
-    console.log('=== Fetching Cafeteria Chairs ===');
     const response = await fetchWithFallback('cafeteria.json');
     
     if (!response) {
-      console.error('All API URL attempts failed for cafeteria.json');
       return [];
     }
     
     const data = await response.json();
     const products = normalizeProducts(data);
-    console.log('Cafeteria chairs loaded:', products.length);
     
     return products
       .map((p, index) => normalizeProduct(p, index, 'cafeteria'))

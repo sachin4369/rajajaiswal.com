@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Raja Jaiswal Plastic Industries - Premium Office Chair Parts & Cafeteria Chairs",
   description: "Leading manufacturer of high-quality office chair parts and cafeteria chairs. Explore our wide range of products.",
-  themeColor: "#ffffff",
 };
 
 export const viewport: Viewport = {
   colorScheme: "light",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
