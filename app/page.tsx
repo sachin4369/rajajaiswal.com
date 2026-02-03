@@ -50,31 +50,31 @@ const productCategories = [
   {
     id: 'base-wheels',
     name: 'Base & Wheels',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80',
+    image: '/images/base-wheels.png',
     href: '/products?category=plastic&filter=base-wheels',
   },
   {
     id: 'armrest',
     name: 'Armrest',
-    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&q=80',
+    image: '/images/armrest-handle.png',
     href: '/products?category=plastic&filter=armrest',
   },
   {
     id: 'shell',
     name: 'Shell',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80',
+    image: '/images/shells.png',
     href: '/products?category=plastic&filter=shell',
   },
   {
     id: 'inner-outer',
     name: 'Inner Outer',
-    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&q=80',
+    image: '/images/inner-outer.png',
     href: '/products?category=plastic&filter=inner-outer',
   },
   {
     id: 'fitting-accessories',
     name: 'Fitting & Accessories',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80',
+    image: '/images/fitting-accessories.png',
     href: '/products?category=plastic&filter=fitting-accessories',
   },
 ];

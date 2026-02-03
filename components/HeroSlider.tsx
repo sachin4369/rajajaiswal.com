@@ -10,7 +10,7 @@ const slides = [
     id: 1,
     title: 'Premium Office Chair Parts & Components',
     description: 'Quality components for comfortable and durable office furniture. Explore our comprehensive range of products designed for modern workplaces.',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80',
+    image: '/images/slider1.png',
     gradient: 'from-black via-teal-950 to-black',
     cta1: { text: 'Explore Products', href: '/products', icon: ArrowRight },
     cta2: { text: 'Download Catalog', href: '/catalog', icon: Download },
@@ -19,7 +19,7 @@ const slides = [
     id: 2,
     title: 'Modern Cafeteria Chairs & Seating Solutions',
     description: 'Stylish and ergonomic seating solutions for modern workplaces and dining areas. Discover comfort and durability in every design.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80',
+    image: '/images/slider2.png',
     gradient: 'from-teal-950 via-black to-teal-950',
     cta1: { text: 'View Collection', href: '/products/cafeteria-chairs', icon: ArrowRight },
     cta2: { text: 'Download Catalog', href: '/catalog', icon: Download },
@@ -28,7 +28,7 @@ const slides = [
     id: 3,
     title: 'Quality You Can Trust',
     description: 'Manufacturing excellence since our inception. We deliver premium office furniture components with unmatched reliability and service.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80',
+    image: '/images/slider3.png',
     gradient: 'from-black via-gray-900 to-teal-950',
     cta1: { text: 'Learn More', href: '/about', icon: ArrowRight },
     cta2: { text: 'Contact Us', href: '/contact', icon: ArrowRight },
@@ -116,10 +116,10 @@ export function HeroSlider() {
         >
           {/* Background Image with Overlay */}
           <div
-            className={`absolute inset-0 bg-linear-to-r ${currentSlide.gradient} opacity-90`}
+            className={`absolute inset-0 bg-linear-to-r ${currentSlide.gradient} opacity-95`}
           >
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-30"
+              className="absolute inset-0 bg-cover bg-center opacity-25"
               style={{
                 backgroundImage: `url(${currentSlide.image})`,
               }}
