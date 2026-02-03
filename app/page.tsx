@@ -16,7 +16,7 @@ const mainCategories = [
     name: 'Cafe Chairs',
     description: 'Modern and elegant cafe seating',
     image: '/images/cafe-chairs.jpg',
-    href: '/products?category=cafe',
+    href: '/products/cafeteria-chairs/cafeteria-chairs',
     featured: true,
   },
   {
@@ -24,7 +24,7 @@ const mainCategories = [
     name: 'Mesh Back',
     description: 'Ergonomic mesh back chairs',
     image: '/images/mesh-back-chairs.jpg',
-    href: '/products?category=mesh',
+    href: '/products/chair-parts/mesh-back',
     featured: true,
   },
   {
@@ -32,7 +32,7 @@ const mainCategories = [
     name: 'Cafeteria Tables',
     description: 'Durable and functional dining tables',
     image: '/images/cafeteria-tables.jpg',
-    href: '/products?category=table',
+    href: '/products/cafeteria-chairs/cafeteria-tables',
     featured: true,
   },
   {
@@ -40,7 +40,7 @@ const mainCategories = [
     name: 'Lounge Chairs',
     description: 'Comfortable lounge seating solutions',
     image: '/images/lounge-chairs.jpg',
-    href: '/products?category=lounge',
+    href: '/products/cafeteria-chairs/lounge-chairs',
     featured: true,
   },
 ];
@@ -51,31 +51,31 @@ const productCategories = [
     id: 'base-wheels',
     name: 'Base & Wheels',
     image: '/images/base-wheels.png',
-    href: '/products?category=plastic&filter=base-wheels',
+    href: '/products/chair-parts/wheels',
   },
   {
     id: 'armrest',
     name: 'Armrest',
     image: '/images/armrest-handle.png',
-    href: '/products?category=plastic&filter=armrest',
+    href: '/products/chair-parts/adjustable-handle',
   },
   {
     id: 'shell',
     name: 'Shell',
     image: '/images/shells.png',
-    href: '/products?category=plastic&filter=shell',
+    href: '/products/chair-parts/chair-plastic-leg',
   },
   {
     id: 'inner-outer',
     name: 'Inner Outer',
     image: '/images/inner-outer.png',
-    href: '/products?category=plastic&filter=inner-outer',
+    href: '/products/chair-parts/inner-outer',
   },
   {
     id: 'fitting-accessories',
     name: 'Fitting & Accessories',
     image: '/images/fitting-accessories.png',
-    href: '/products?category=plastic&filter=fitting-accessories',
+    href: '/products/chair-parts/fitting-accessories',
   },
 ];
 
