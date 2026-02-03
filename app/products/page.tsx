@@ -17,7 +17,7 @@ const categories = [
     name: 'Cafeteria Chairs & Components',
     description: 'Stylish and comfortable seating solutions for cafeterias',
     slug: 'cafeteria',
-    image: '/images/cafe-parts-components.jpg',
+    image: '/images/chafe-parts-components.jpg',
   },
 ];
 

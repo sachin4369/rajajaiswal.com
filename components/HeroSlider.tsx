@@ -116,7 +116,7 @@ export function HeroSlider() {
         >
           {/* Background Image with Overlay */}
           <div
-            className={`absolute inset-0 bg-gradient-to-r ${currentSlide.gradient} opacity-90`}
+            className={`absolute inset-0 bg-linear-to-r ${currentSlide.gradient} opacity-90`}
           >
             <div
               className="absolute inset-0 bg-cover bg-center opacity-30"
