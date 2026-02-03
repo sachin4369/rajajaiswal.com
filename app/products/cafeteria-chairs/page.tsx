@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { fetchProductsByCategory } from '@/lib/api';
+import Image from 'next/image';
 
 const subcategories = [
   {
@@ -64,6 +67,55 @@ const subcategories = [
 ];
 
 export default function CafeteriaChairsPage() {
+  const [categoryImages, setCategoryImages] = useState<Record<string, string>>({});
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    async function loadCategoryImages() {
+      const images: Record<string, string> = {};
+      
+      // Fetch first product image for each category
+      for (const subcategory of subcategories) {
+        try {
+          const products = await fetchProductsByCategory(subcategory.apiCategory);
+          if (products && products.length > 0) {
+            const firstProduct = products[0];
+            // Get image from product - check multiple possible fields
+            const productImage = firstProduct.image ||
+              (firstProduct as any).img ||
+              (firstProduct as any).imageUrl ||
+              (firstProduct as any).image_url ||
+              (firstProduct as any).photo ||
+              (firstProduct as any).picture ||
+              (firstProduct as any).Image ||
+              (firstProduct as any).Img ||
+              (firstProduct as any).ImageUrl ||
+              (((firstProduct as any).Url || (firstProduct as any).URL) &&
+               typeof ((firstProduct as any).Url || (firstProduct as any).URL) === 'string' &&
+               (((firstProduct as any).Url || (firstProduct as any).URL).includes('/images/') ||
+                ((firstProduct as any).Url || (firstProduct as any).URL).match(/\.(png|jpg|jpeg|gif|webp)$/i))) ?
+               ((firstProduct as any).Url || (firstProduct as any).URL) :
+              undefined;
+            
+            if (productImage && productImage !== '/placeholder.svg') {
+              images[subcategory.id] = productImage;
+            }
+          }
+        } catch (error) {
+          console.error(`Error loading image for ${subcategory.apiCategory}:`, error);
+        }
+      }
+      
+      setCategoryImages(images);
+    }
+    
+    loadCategoryImages();
+  }, []);
+
+  const handleImageError = (categoryId: string) => {
+    setImageErrors(prev => ({ ...prev, [categoryId]: true }));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Compact Header with Breadcrumbs */}
@@ -124,33 +176,45 @@ export default function CafeteriaChairsPage() {
                     {/* Content */}
                     <div className="p-6 flex-1 flex flex-col">
                       {/* Icon/Image Area */}
-                      <div className="mb-4">
-                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 dark:from-teal-900/30 dark:to-teal-800/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                          <svg
-                            className="w-8 h-8 text-teal-600 dark:text-teal-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      <div className="mb-2">
+                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-100/10 to-teal-200/10 dark:from-teal-900/30 dark:to-teal-800/30 border-2 border-gray-200 dark:border-gray-700 group-hover:border-teal-500 dark:group-hover:border-teal-500 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                          {categoryImages[subcategory.id] && !imageErrors[subcategory.id] ? (
+                            <Image
+                              src={categoryImages[subcategory.id]}
+                              alt={subcategory.name}
+                              width={64}
+                              height={64}
+                              className="w-full h-full object-contain p-2"
+                              onError={() => handleImageError(subcategory.id)}
+                              unoptimized
                             />
-                          </svg>
+                          ) : (
+                            <svg
+                              className="w-8 h-8 text-teal-600 dark:text-teal-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                              />
+                            </svg>
+                          )}
                         </div>
                       </div>
                       
                       <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                         {subcategory.name}
                       </h2>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-1 leading-relaxed">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 flex-1 leading-relaxed">
                         {subcategory.description}
                       </p>
                       
                       {/* CTA */}
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-700">
                         <span className="text-sm font-semibold text-teal-600 dark:text-teal-400">
                           Explore
                         </span>
