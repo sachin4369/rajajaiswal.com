@@ -134,10 +134,10 @@ export function HeroSlider() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="mb-6 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-400/20 backdrop-blur-md rounded-2xl p-4 md:p-6 border-2 border-yellow-300/50 shadow-2xl"
+                className="mb-4 md:mb-6 mt-4 md:mt-0 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-400/20 backdrop-blur-md rounded-2xl p-3 md:p-6 border-2 border-yellow-300/50 shadow-2xl"
               >
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-between flex-wrap gap-3 md:gap-4">
+                  <div className="flex items-center space-x-2 md:space-x-3 flex-1 min-w-0">
                     <motion.div
                       animate={{
                         scale: [1, 1.2, 1],
@@ -147,21 +147,22 @@ export function HeroSlider() {
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
+                      className="shrink-0"
                     >
-                      <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-yellow-300" />
+                      <Sparkles className="w-5 h-5 md:w-8 md:h-8 text-yellow-300" />
                     </motion.div>
-                    <div>
-                      <h3 className="text-lg md:text-2xl font-bold text-white mb-1">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base md:text-2xl font-bold text-white mb-1 leading-tight">
                         Visit Us at <span className="text-yellow-300">IndexPlus</span>
                       </h3>
-                      <p className="text-sm md:text-base text-gray-200">
+                      <p className="text-xs md:text-base text-gray-200 leading-tight">
                         Bengaluru, 6th Feb - 8th Feb 2026 | Booth No. F-07
                       </p>
                     </div>
                   </div>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-yellow-300 text-teal-800 font-bold text-sm md:text-base rounded-lg hover:bg-yellow-200 transition-all duration-300 shadow-lg hover:shadow-yellow-300/50 whitespace-nowrap"
+                    className="hidden md:inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-yellow-300 text-teal-800 font-bold text-sm md:text-base rounded-lg hover:bg-yellow-200 transition-all duration-300 shadow-lg hover:shadow-yellow-300/50 whitespace-nowrap"
                   >
                     <MapPin className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                     Plan Visit
