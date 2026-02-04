@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Footer() {
@@ -101,19 +101,73 @@ export function Footer() {
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
-                <span>Location: India</span>
+                <span>Location: Plot no. 70, Ground floor, Furniture Block, Kirti Nagar, New Delhi-110015</span>
               </li>
             </ul>
             <div className="mt-4 space-y-2">
               <div className="flex items-center text-gray-300 text-sm">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0" />
                 <a href="mailto:sachinchohi@gmail.com" className="hover:text-teal-400 transition-colors">
-                  sachinchohi@gmail.com
+                  rajajaiswal2000@gmail.com
                 </a>
               </div>
               <div className="flex items-center text-gray-300 text-sm">
                 <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 9810087153</span>
+              </div>
+            </div>
+            
+            {/* Social Media Links */}
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-wider mb-3 text-teal-400">
+                Follow Us
+              </h4>
+              <div className="flex items-center space-x-3">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
+                </a>
               </div>
             </div>
           </div>

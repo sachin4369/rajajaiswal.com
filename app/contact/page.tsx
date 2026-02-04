@@ -3,7 +3,7 @@
 import { useState, FormEvent, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Clock, Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 function ContactForm() {
   const searchParams = useSearchParams();
@@ -85,13 +85,13 @@ function ContactForm() {
       {/* Contact Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-1 space-y-6"
+              className="space-y-6"
             >
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -152,7 +152,7 @@ function ContactForm() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Location</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">India</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Plot no. 70, Ground floor, Furniture Block, Kirti Nagar, New Delhi-110015</p>
                   </div>
                 </motion.div>
 
@@ -173,6 +173,63 @@ function ContactForm() {
                     </p>
                   </div>
                 </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700"
+                >
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Follow Us</h3>
+                  <div className="flex items-center space-x-3">
+                    <a
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-teal-600 dark:hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-teal-600 dark:hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-teal-600 dark:hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
+                    </a>
+                    <a
+                      href="https://www.twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-teal-600 dark:hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                      aria-label="Twitter"
+                    >
+                      <Twitter className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-teal-600 dark:hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                      aria-label="YouTube"
+                    >
+                      <Youtube className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors" />
+                    </a>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -181,7 +238,6 @@ function ContactForm() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-2"
             >
               <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -336,6 +392,67 @@ function ContactForm() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-12 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Find Us
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Visit us at our location in Kirti Nagar, New Delhi. We're here to serve you!
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <div className="relative w-full h-[500px] md:h-[600px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.4275320347087!2d77.14007737495727!3d28.646914783428336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d031b86227def%3A0xe21183e1d8477ef9!2sRaja%20Jaiswal%20Plastic%20Industries!5e0!3m2!1sen!2sin!4v1770182120100!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+                title="Raja Jaiswal Plastic Industries Location"
+              />
+            </div>
+            <div className="bg-white dark:bg-gray-900 p-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex items-start space-x-4">
+                <MapPin className="w-6 h-6 text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Our Address</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                    Plot no. 70, Ground floor, Furniture Block, Kirti Nagar, New Delhi-110015
+                  </p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Plot+no.+70,+Ground+floor,+Furniture+Block,+Kirti+Nagar,+New+Delhi-110015"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 text-sm font-medium transition-colors"
+                  >
+                    Open in Google Maps
+                    <MapPin className="w-4 h-4 ml-1" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

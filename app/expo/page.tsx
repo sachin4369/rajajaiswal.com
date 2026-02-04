@@ -9,18 +9,18 @@ const expoVideos = [
     id: 'meqfktc9pto',
     embedUrl: 'https://www.youtube.com/embed/meqfktc9pto?si=uJHcgg3rphYFyHb5&start=4',
     watchUrl: 'https://www.youtube.com/watch?v=meqfktc9pto&t=4',
-    title: 'RJPI as Exhibitors in Expo – Highlights',
+    title: 'RJPI as Exhibitors in INDEX – Highlights',
     description:
-      "Watch highlights from RJPI's participation in leading furniture and manufacturing expos.",
+      "Watch highlights from RJPI's participation in INDEX (Furniture | Interior | Design), 2025 at Delhi.",
     duration: '4:36',
   },
   {
     id: '9dz_Gpuy_wM',
     embedUrl: 'https://www.youtube.com/embed/9dz_Gpuy_wM?si=I66b_U0qyiQHeQjw&start=3',
     watchUrl: 'https://www.youtube.com/watch?v=9dz_Gpuy_wM&t=3',
-    title: 'RJPI – Expo Showcase',
+    title: 'RJPI – Aakar Showcase',
     description:
-      'Additional highlights showcasing RJPI products and presence at major expos.',
+      'Additional highlights showcasing RJPI products and presence at Aakar expos.',
     duration: '3:30',
   },
 ];

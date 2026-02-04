@@ -249,7 +249,7 @@ export default function Home() {
               RJPI as Exhibitors in Expo
             </h2>
             <p className="text-lg text-gray-600">
-              Watch highlights from RJPI's participation in leading furniture and manufacturing expos.
+              Watch highlights from RJPI's participation in INDEX (Furniture | Interior | Design), 2025 at Delhi.
             </p>
           </div>
 
