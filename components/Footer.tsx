@@ -18,32 +18,32 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/products?category=plastic" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/chair-parts" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Office Chair Parts
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=cafe" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/cafeteria-chairs/cafeteria-chairs" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Cafe Chairs
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=mesh" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/chair-parts/mesh-back" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Mesh Back
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=table" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/cafeteria-chairs/cafeteria-tables" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Cafeteria Tables
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=lounge" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/cafeteria-chairs/lounge-chairs" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Lounge Chairs
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=cafeteria" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
+                <Link href="/products/cafeteria-chairs/cafeteria-chairs" className="text-gray-300 hover:text-teal-400 transition-colors text-sm">
                   Cafeteria Chairs
                 </Link>
               </li>
@@ -101,7 +101,7 @@ export function Footer() {
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
-                <span>Location: Plot no. 70, Ground floor, Furniture Block, Kirti Nagar, New Delhi-110015</span>
+                <span>Plot no. 70, Ground floor, Furniture Block, Kirti Nagar, New Delhi-110015</span>
               </li>
             </ul>
             <div className="mt-4 space-y-2">
@@ -124,7 +124,7 @@ export function Footer() {
               </h4>
               <div className="flex items-center space-x-3">
                 <a
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/share/1DBui7Vvfr/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
@@ -133,7 +133,7 @@ export function Footer() {
                   <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/raja.jaiswal1975?igsh=YnI2dGU5ZWxoaHNk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
@@ -142,25 +142,7 @@ export function Footer() {
                   <Instagram className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://www.youtube.com"
+                  href="https://youtube.com/@rajajaiswal2000?si=6R5cGJZ2c2WPqpOY"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center transition-colors group"

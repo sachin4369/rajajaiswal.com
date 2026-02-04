@@ -5,7 +5,7 @@ import { ProductCard } from '@/components/ProductCard';
 import { Product } from '@/types';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Download, Check } from 'lucide-react';
+import { ArrowRight, Download, Check, MapPin, Calendar, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { HeroSlider } from '@/components/HeroSlider';
 
@@ -241,15 +241,184 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Visit Us at IndexPlus Bengaluru - Highlighted Section */}
+      <section className="py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -top-20 -right-20 w-96 h-96 bg-white rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, -90, 0],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -bottom-20 -left-20 w-96 h-96 bg-white rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            {/* Main Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
+            >
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="inline-block mb-6"
+              >
+                <Sparkles className="w-16 h-16 text-yellow-300 drop-shadow-lg" />
+              </motion.div>
+              
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+              >
+                Visit Us at{' '}
+                <span className="text-yellow-300 drop-shadow-lg">IndexPlus</span>
+                <br />
+                Bengaluru, 6th Feb - 8th Feb 2026
+              </motion.h2>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-xl md:text-2xl text-teal-50 mb-8 max-w-3xl mx-auto leading-relaxed"
+              >
+                Explore & Discover RJPI's Premium Products and Experience Our Presence at IndexPlus
+              </motion.p>
+            </motion.div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-yellow-300 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-teal-800" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Location</h3>
+                    <p className="text-teal-50 text-lg">
+                      IndexPlus Bengaluru - Booth No. F-07
+                    </p>
+                    <p className="text-teal-100 text-sm mt-1">
+                      Explore our exhibition booth
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-yellow-300 rounded-lg flex items-center justify-center">
+                    <Calendar className="w-6 h-6 text-teal-800" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">What to Expect</h3>
+                    <p className="text-teal-50 text-lg">
+                      Product Showcase & Live Demonstrations
+                    </p>
+                    <p className="text-teal-100 text-sm mt-1">
+                      Experience our quality firsthand
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Call to Action */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+              >
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center px-8 py-4 bg-yellow-300 text-teal-800 font-bold text-lg rounded-full shadow-2xl hover:bg-yellow-200 transition-all duration-300 hover:shadow-yellow-300/50"
+                >
+                  <MapPin className="w-6 h-6 mr-3" />
+                  Plan Your Visit
+                  <ArrowRight className="w-6 h-6 ml-3" />
+                </Link>
+              </motion.div>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="text-teal-100 text-sm mt-6"
+              >
+                We look forward to meeting you and showcasing our premium office furniture solutions
+              </motion.p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
       {/* RJPI as Exhibitors in Expo */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto mb-6 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              RJPI as Exhibitors in Expo
+              RJPI as Exhibitors in INDEX PLUS 2025
             </h2>
             <p className="text-lg text-gray-600">
-              Watch highlights from RJPI's participation in INDEX (Furniture | Interior | Design), 2025 at Delhi.
+              Watch highlights from RJPI's participation in INDEX PLUS (Furniture | Interior | Design), 2025 at Delhi.
             </p>
           </div>
 

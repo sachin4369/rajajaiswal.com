@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowRight, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Download, MapPin, Calendar, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const slides = [
@@ -128,12 +128,52 @@ export function HeroSlider() {
 
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl w-full">
+              {/* IndexPlus Highlighted Section - For all slides */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="mb-6 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-400/20 backdrop-blur-md rounded-2xl p-4 md:p-6 border-2 border-yellow-300/50 shadow-2xl"
+              >
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div className="flex items-center space-x-3">
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.2, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-yellow-300" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-lg md:text-2xl font-bold text-white mb-1">
+                        Visit Us at <span className="text-yellow-300">IndexPlus</span>
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-200">
+                        Bengaluru, 6th Feb - 8th Feb 2026 | Booth No. F-07
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-yellow-300 text-teal-800 font-bold text-sm md:text-base rounded-lg hover:bg-yellow-200 transition-all duration-300 shadow-lg hover:shadow-yellow-300/50 whitespace-nowrap"
+                  >
+                    <MapPin className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                    Plan Visit
+                  </Link>
+                </div>
+              </motion.div>
+              
               <motion.h1
                 key={`title-${currentSlide.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.3 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
               >
                 {currentSlide.title}
@@ -142,7 +182,7 @@ export function HeroSlider() {
                 key={`desc-${currentSlide.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.4 }}
                 className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
               >
                 {currentSlide.description}
@@ -151,7 +191,7 @@ export function HeroSlider() {
                 key={`cta-${currentSlide.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.5 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Link

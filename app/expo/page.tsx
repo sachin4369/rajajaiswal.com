@@ -38,7 +38,7 @@ export default function ExpoPage() {
           >
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                RJ as Exhibitors in Expo
+                RJPI as Exhibitors in Expo
               </h1>
               <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
                 Explore our presence at national and international furniture and manufacturing expos.
