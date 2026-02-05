@@ -107,17 +107,15 @@ export function ProductCard({ product, index = 0, categoryOverride }: ProductCar
   const isExternalImage = imgSrc.startsWith('http://') || imgSrc.startsWith('https://');
   const hasApiImage = apiImageUrl && apiImageUrl !== '/placeholder.svg' && !imageError;
   
-  // Determine display name
+  // Determine display name - prefer Model No for all category listing pages
   const modelNo =
     (product as any).ModelNo ||
     (product as any).modelNo ||
     (product as any).model_no ||
     (product as any).MODELNO;
 
-  const displayName =
-    effectiveCategory === 'aremrest-pp-base'
-      ? modelNo || product.name || 'Unnamed Product'
-      : product.name || 'Unnamed Product';
+  // Always prefer model number if available, otherwise fall back to name
+  const displayName = modelNo || product.name || 'Unnamed Product';
   
   // Common card content
   const cardContent = (
