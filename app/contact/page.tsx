@@ -12,23 +12,40 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    mobile: '',
+    mobile: '+91 ',
     productName: productName,
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
 
-  useEffect(() => {
-    if (productName) {
-      setFormData(prev => ({ ...prev, productName: productName }));
-    }
-  }, [productName]);
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
     setStatusMessage('');
+
+    // Frontend validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus('error');
+      setStatusMessage('Please enter a valid email address.');
+      return;
+    }
+
+    let mobileVal = formData.mobile.trim();
+    // Auto prefix for strict 10 digit Indian number
+    if (/^[6-9]\d{9}$/.test(mobileVal)) {
+      mobileVal = '+91 ' + mobileVal;
+    }
+    
+    const mobileRegex = /^(?:\+91\s?)?[6-9]\d{9}$/;
+    if (!mobileRegex.test(mobileVal)) {
+      setStatus('error');
+      setStatusMessage('Please enter a valid 10-digit Indian mobile number.');
+      return;
+    }
+
+    const dataToSend = { ...formData, mobile: mobileVal };
 
     try {
       const response = await fetch('/api/contact', {
@@ -36,7 +53,7 @@ function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSend),
       });
 
       const data = await response.json();
@@ -44,7 +61,7 @@ function ContactForm() {
       if (response.ok) {
         setStatus('success');
         setStatusMessage('Thank you! Your message has been sent successfully. We will get back to you soon.');
-        setFormData({ name: '', email: '', mobile: '', productName: productName || '', message: '' });
+        setFormData({ name: '', email: '', mobile: '+91 ', productName: productName || '', message: '' });
       } else {
         setStatus('error');
         setStatusMessage(data.error || 'Failed to send message. Please try again.');

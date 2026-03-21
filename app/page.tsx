@@ -241,7 +241,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Visit Us at IndexPlus Bengaluru - Highlighted Section */}
+      {/* Visit Us at IndexPlus Bengaluru - Highlighted Section (Temporarily Hidden) */}
+      {false && (
       <section className="py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -408,6 +409,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
 
       {/* RJPI as Exhibitors in Expo */}

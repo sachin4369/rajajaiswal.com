@@ -1,0 +1,59 @@
+﻿
+> rajajaiswal.com@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 5.0s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/37) ...
+  Generating static pages using 11 workers (9/37) 
+  Generating static pages using 11 workers (18/37) 
+  Generating static pages using 11 workers (27/37) 
+Γ£ô Generating static pages using 11 workers (37/37) in 1354.3ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ ╞Æ /api/contact
+Γö£ Γùï /catalog
+Γö£ Γùï /contact
+Γö£ Γùï /expo
+Γö£ Γùï /products
+Γö£ ╞Æ /products/[category]/[id]
+Γö£ Γùï /products/cafeteria-chairs
+Γö£ Γùï /products/cafeteria-chairs/cafe-bar-counter-chair
+Γö£ Γùï /products/cafeteria-chairs/cafe-plastic-top-shell
+Γö£ Γùï /products/cafeteria-chairs/cafeteria-chairs
+Γö£ Γùï /products/cafeteria-chairs/cafeteria-tables
+Γö£ Γùï /products/cafeteria-chairs/lounge-chairs
+Γö£ Γùï /products/cafeteria-chairs/plastic-chairs
+Γö£ Γùï /products/cafeteria-chairs/school-desk-institute-writing-chair
+Γö£ Γùï /products/chair-parts
+Γö£ Γùï /products/chair-parts/adjustable-handle
+Γö£ Γùï /products/chair-parts/aremrest-pp-base
+Γö£ Γùï /products/chair-parts/chair-handle-base-nylon
+Γö£ Γùï /products/chair-parts/chair-mechanism
+Γö£ Γùï /products/chair-parts/chair-mesh-series
+Γö£ Γùï /products/chair-parts/chair-plastic-leg
+Γö£ Γùï /products/chair-parts/chair-seat-back-plastic-fibre
+Γö£ Γùï /products/chair-parts/fitting-accessories
+Γö£ Γùï /products/chair-parts/inner-outer
+Γö£ Γùï /products/chair-parts/iron-base
+Γö£ Γùï /products/chair-parts/mesh-back
+Γö£ Γùï /products/chair-parts/pu-cushions
+Γö£ Γùï /products/chair-parts/pu-moulded-chair
+Γö£ Γùï /products/chair-parts/school-desk-parts-components
+Γö£ Γùï /products/chair-parts/sleek-chair-accessories
+Γö£ Γùï /products/chair-parts/wheels
+Γö£ Γùï /search
+Γöö Γùï /services
+
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

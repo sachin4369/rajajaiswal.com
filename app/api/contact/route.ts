@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, mobile, productName, message } = body;
+    let { name, email, mobile, productName, message } = body;
 
     // Validate required fields
     if (!name || !email || !mobile || !message) {
@@ -24,18 +24,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get Gmail credentials from environment variables
-    const gmailUser = process.env.GMAIL_USER;
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
-    const recipientEmail = process.env.RECIPIENT_EMAIL || 'sachinchohi@gmail.com';
+    // Mobile validation
+    mobile = mobile.trim();
+    if (/^[6-9]\d{9}$/.test(mobile)) {
+      mobile = '+91 ' + mobile;
+    }
+    const mobileRegex = /^(?:\+91\s?)?[6-9]\d{9}$/;
+    if (!mobileRegex.test(mobile)) {
+      return NextResponse.json(
+        { error: 'Invalid mobile number' },
+        { status: 400 }
+      );
+    }
+
+    // Get Gmail credentials from environment variables (supporting both naming conventions)
+    const gmailUser = process.env.GMAIL_USER || process.env.SMTP_USER;
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASSWORD;
+    const recipientEmail = process.env.RECIPIENT_EMAIL || process.env.CONTACT_EMAIL || 'sachinchohi@gmail.com';
 
     // Check if email credentials are configured
     if (!gmailUser || !gmailAppPassword) {
-      console.error('Gmail credentials not configured. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables.');
+      console.error('Gmail credentials not configured. Please set SMTP_USER and SMTP_PASSWORD environment variables.');
       // In development, just log the data
       console.log('Contact Form Submission (not sent - missing credentials):', {
         to: recipientEmail,
-        subject: `Contact Form Submission from ${name}${productName ? ` - Product: ${productName}` : ''}`,
+        subject: `RJPI Enquiry from ${name}${productName ? ` - Product: ${productName}` : ''}`,
         name,
         email,
         mobile,
@@ -62,7 +75,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Email subject
-    const subject = `Contact Form Submission from ${name}${productName ? ` - Product: ${productName}` : ''}`;
+    const subject = `RJPI Enquiry from ${name}${productName ? ` - Product: ${productName}` : ''}`;
 
     // Email HTML content
     const htmlContent = `
@@ -83,7 +96,7 @@ export async function POST(request: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
-              <h2>New Contact Form Submission</h2>
+              <h2>New RJPI Enquiry</h2>
             </div>
             <div class="content">
               <div class="field">
@@ -120,7 +133,7 @@ export async function POST(request: NextRequest) {
 
     // Plain text version
     const textContent = `
-New Contact Form Submission
+RJPI Enquiry Form
 
 Name: ${name}
 Email: ${email}
@@ -157,7 +170,7 @@ You can reply directly to this email to contact: ${email}
     );
   } catch (error) {
     console.error('Error processing contact form:', error);
-    
+
     // Provide more specific error message
     let errorMessage = 'Failed to send message. Please try again later.';
     if (error instanceof Error) {

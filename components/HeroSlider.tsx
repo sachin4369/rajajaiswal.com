@@ -129,7 +129,8 @@ export function HeroSlider() {
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
             <div className="max-w-3xl w-full">
-              {/* IndexPlus Highlighted Section - For all slides */}
+              {/* IndexPlus Highlighted Section - For all slides (Temporarily Hidden) */}
+              {false && (
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -169,6 +170,7 @@ export function HeroSlider() {
                   </Link>
                 </div>
               </motion.div>
+              )}
               
               <motion.h1
                 key={`title-${currentSlide.id}`}
